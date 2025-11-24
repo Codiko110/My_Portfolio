@@ -22,7 +22,9 @@ function Project() {
   ));
 
   return (
-    <div className="my-20">
+    <div 
+    className="my-20"
+    >
         <h1 className="text-5xl text-primary font-bold mb-5 items-center justify-center flex">Projects</h1>
         <div 
             className="flex flex-wrap place-content-center bg-base-100 rounded-2xl gap-5 mb-10"

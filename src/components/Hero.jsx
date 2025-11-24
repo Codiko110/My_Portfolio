@@ -1,7 +1,10 @@
 import { about } from "../data/data";
 import avatar from "../pictures/avatar.png";
+import Cv from "../assets/cv.pdf";
 
-function Hero() {
+
+function Hero({ onClickScroll }) {
+
   return (
     <div className="hero bg-base-100 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -27,9 +30,12 @@ function Hero() {
             </span>
           </span>
           <p className="py-6">{about.description}</p>
-          <button className="btn btn-primary outline">Hire me</button>
+          <button 
+          onClick={onClickScroll}
+          className="btn btn-primary outline"
+          >Hire me</button>
           <button className="btn btn-outline  ml-5 hover:btn-primary">
-            Download my CV
+            <a href={Cv}>Download CV</a>
           </button>
         </div>
       </div>

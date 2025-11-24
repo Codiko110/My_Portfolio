@@ -2,7 +2,7 @@ import { socialLinks } from "../data/data"
 import { useState } from "react"
 
 
-function Contact() {
+function Contact({refProps}) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,7 +26,9 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 py-12 px-4 sm:px-6 lg:px-8">
+    <div 
+    ref={refProps}
+    className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Titre */}
         <div className="text-center mb-12">
