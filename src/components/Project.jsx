@@ -1,22 +1,36 @@
-import {projects} from '../data/data.jsx';
+import { projects } from "../data/data.jsx";
 
 function Project() {
-
-    const listProjects = projects.map((project) => (
-        <div key={project.id} className="p-5 mb-5 ">
-            <img src={require(project.imageUrl} alt={project.name} className="w-10 " />   
-            <h2 className="text-2xl font-bold">{project.name}</h2>
-            <p>{project.description}</p>
-            <a href={project.projectUrl} className="text-blue-500 hover:underline">View Project</a>
+  const listProjects = projects.map((project) => (
+    <div key={project.id} className="card bg-base-200 w-90 shadow-sm ">
+      <figure>
+        <img className="h-70" src={project.image} alt={project.title} />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{project.title} 
+        </h2>
+        <p>{project.description}</p>
+        <div className="flex gap-2 flex-wrap">
+          {project.technologies.map((tech, index) => (
+            <span key={index} className="badge badge-primary">
+              {tech}
+            </span>
+          ))}
         </div>
-
-    ));
+      </div>
+    </div>
+  ));
 
   return (
-    <>
-    <div className="bg-base-100">{listProjects}</div>
-    </>
-  )
+    <div className="my-20">
+        <h1 className="text-5xl text-primary font-bold mb-5 items-center justify-center flex">Projects</h1>
+        <div 
+            className="flex flex-wrap place-content-center bg-base-100 rounded-2xl gap-5 mb-10"
+        >
+            {listProjects}
+        </div>
+    </div>
+  );
 }
 
-export default Project
+export default Project;

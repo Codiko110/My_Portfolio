@@ -1,3 +1,10 @@
+import ecommerce from '../pictures/ecommerce.jpg';
+import cyber from '../pictures/cyber.png';
+import pharmacie from '../pictures/pharmacie.png';
+import createCV from '../pictures/createCV.png';
+import zanaka from '../pictures/Zanaka_connect.png';
+import survey from '../pictures/survey.png';
+
 export const about = {
   name: " Sedera",
   avatar: "avatar.png",
@@ -123,14 +130,14 @@ export const projects = [
     description:
       "It's a mini e-commerce platform with product listing, user authentication, and a shopping cart.",
     technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
-    image: "ecommerce.jpg",
+    image: ecommerce,
   },
   {
-    id: 2,
+    id: 5,
     title: "Local Cybercafé management system",
     description: "It's time management, prices of connected people.",
     technologies: ["PHP", "Mysql", "JavaScript", "CSS", "HTML"],
-    image: "cyber.png",
+    image: cyber,
   },
   {
     id: 3,
@@ -138,7 +145,7 @@ export const projects = [
     description:
       "It's a management of drug stocks added and sold with a visualization graph over time.",
     technologies: ["PHP", "Myql", "HTML", "CSS", "JavaScript"],
-    image: "pharmacie.png",
+    image: pharmacie,
   },
   {
     id: 4,
@@ -146,15 +153,15 @@ export const projects = [
     description:
       "It's a site allowing people to easily and quickly create CVs with various themes",
     technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
-    image: "createCV.png",
+    image: createCV,
   },
   {
-    id: 5,
+    id: 2,
     title: "ZanakaConnect – School Monitoring platform",
     description:
       "A web app that connects parents and schools by providing real-time access to students’ grades, attendance, and assignments.",
     technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
-    image: "Zanaka_connect.png",
+    image: zanaka,
   },
   {
     id: 6,
@@ -162,14 +169,63 @@ export const projects = [
     description:
       "A web app that allows users to create and participate in surveys, collecting valuable data and insights.",
     technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
-    image: "survey.png",
+    image: survey,
   },
 ];
 
-export const socialLinks = {
-    github: "https://github.com/Codiko110",
-    linkedin: "https://www.linkedin.com/in/se-dera-ss7028",
-    facebook: "https://www.facebook.com/sederas.rvs",
-    email : "vatosoa7028@gmail.com",
-    whatsapp : "+261380755474"
-};
+export const socialLinks = [
+  {
+    name: "github",
+    url: "https://github.com/Codiko110",
+    icon: "https://cdn.simpleicons.org/github",
+  },
+  {
+    name: "linkedin",
+    url: "https://www.linkedin.com/in/se-dera-ss7028",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMLbsOZKIL9Th6OU7sDVhBOQdPmCsjiFVNGw&s",
+  },
+  {
+    name: "facebook",
+    url: "https://cdn.simpleicons.org/facebook",
+    icon: "https://cdn.simpleicons.org/facebook",
+  },
+  {
+    name: "email",
+    url: "mailto:vatosoa7028@gmail.com",
+    icon: "https://cdn.simpleicons.org/gmail",
+  },
+  {
+    name: "whatsapp",
+    url: "https://wa.me/261380755474",
+    icon: "https://cdn.simpleicons.org/whatsapp",
+  },
+  {
+    name: "comeup",
+    url:" fjldfja.com" ,
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfmb20kWjQwbukoynsLCXRZyIF0qGr2F5CQ&s",
+  }
+];
+
+
+export const SkillCapabilities = [
+  {
+    id: 1,
+    title: "Responsive Modern Websites",
+    description: "I build fully responsive and modern websites including e-commerce platforms, SaaS dashboards, landing pages, and personal portfolios."
+  },
+  {
+    id: 2,
+    title: "Mobile Applications (Android & iOS)",
+    description: "I create modern and smooth mobile applications for both Android and iOS using high-quality design principles."
+  },
+  {
+    id: 3,
+    title: "Modern UI/UX & SEO Optimization",
+    description: "I design clean and modern user interfaces, intuitive user experiences, and SEO-optimized layouts."
+  },
+  {
+    id: 4,
+    title: "Website Maintenance",
+    description: "I maintain and update websites to ensure stability, security, and long-term performance."
+  }
+];
