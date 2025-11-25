@@ -1,6 +1,6 @@
 import { about } from "../data/data";
 import avatar from "../pictures/avatar.png";
-import Cv from "../assets/cv.pdf";
+import Cv from "../assets/cv1.pdf";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
