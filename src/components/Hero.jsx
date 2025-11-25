@@ -1,6 +1,6 @@
 import { about } from "../data/data";
 import avatar from "../pictures/avatar.png";
-import Cv from "../assets/cv1.pdf";
+import Cv1 from "../assets/cv1.pdf";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -147,7 +147,7 @@ function Hero({ onClickScroll }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href={Cv} className="no-underline">
+              <a href={Cv1} className="no-underline">
                 Download CV
               </a>
             </motion.button>
