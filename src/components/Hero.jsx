@@ -1,12 +1,19 @@
 import { about } from "../data/data";
 import avatar from "../pictures/avatar.png";
 import Cv from "../assets/cv.pdf";
-
+import {motion} from "framer-motion";
 
 function Hero({ onClickScroll }) {
 
+  
   return (
-    <div className="hero bg-base-100 min-h-screen">
+    <motion.div
+    className="hero bg-base-100 min-h-screen"
+    initial= {{opacity: 0, y:50}}
+    whileInView={{opacity: 1, y:0}}
+    transition={{duration: 1}}
+    viewport={{once: true}}
+    >
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={avatar}
@@ -39,7 +46,7 @@ function Hero({ onClickScroll }) {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

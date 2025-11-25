@@ -1,8 +1,16 @@
 import { projects } from "../data/data.jsx";
+import { motion } from "framer-motion";
 
 function Project() {
-  const listProjects = projects.map((project) => (
-    <div key={project.id} className="card bg-base-200 w-90 shadow-sm ">
+  const listProjects = projects.map((project, index) => (
+    <motion.div 
+      key={project.id} 
+      className="card bg-base-200 w-90 shadow-sm "
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+    >
       <figure>
         <img className="h-70" src={project.image} alt={project.title} />
       </figure>
@@ -18,20 +26,32 @@ function Project() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   ));
 
   return (
-    <div 
-    className="my-20"
+    <motion.div 
+      className="my-20"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
     >
-        <h1 className="text-5xl text-primary font-bold mb-5 items-center justify-center flex">Projects</h1>
+        <motion.h1 
+          className="text-5xl text-primary font-bold mb-5 items-center justify-center flex"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Projects
+        </motion.h1>
         <div 
             className="flex flex-wrap place-content-center bg-base-100 rounded-2xl gap-5 mb-10"
         >
             {listProjects}
         </div>
-    </div>
+    </motion.div>
   );
 }
 

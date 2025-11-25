@@ -5,6 +5,7 @@ import Project from "./components/Project";
 import Skills from "./components/Skills";
 import {useRef} from "react";
 
+
 function App() {
   const contactRef = useRef(null);
 

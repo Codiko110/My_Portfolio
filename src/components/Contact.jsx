@@ -1,5 +1,6 @@
 import { socialLinks } from "../data/data"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 
 function Contact({refProps}) {
@@ -26,21 +27,43 @@ function Contact({refProps}) {
   };
 
   return (
-    <div 
-    ref={refProps}
-    className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 py-12 px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      ref={refProps}
+      className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 py-12 px-4 sm:px-6 lg:px-8"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Titre */}
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h1 className="text-5xl font-bold text-primary mb-4">Contact Me</h1>
           <p className="text-xl text-base-content/60">Feel free to send me a message</p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
 
                    {/* Formulaire de Contact */}
-          <div className="card bg-base-100 shadow-xl">
+          <motion.div 
+            className="card bg-base-100 shadow-xl"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <div className="card-body">
               <h2 className="card-title text-2xl text-primary mb-6">Send Me a Message</h2>
               
@@ -100,11 +123,17 @@ function Contact({refProps}) {
                 </div>
               </form>
             </div>
-          </div>
+          </motion.div>
  
 
           {/* Liens de Contact */}
-          <div className="space-y-6">
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             {/* Carte d'informations */}
             <div className="card bg-base-100 shadow-xl">
               <div className="card-body">
@@ -180,10 +209,10 @@ function Contact({refProps}) {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
