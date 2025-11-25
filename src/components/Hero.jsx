@@ -20,27 +20,20 @@ function Hero({ onClickScroll }) {
         />
         <div className=" w-full min-h-screen flex items-center justify-center p-4">
           <div className="max-w-4xl w-full">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-5">
-              <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold">
-                Hello, I'm
-              </h1>
-              <p className="text-primary text-3xl sm:text-4xl xl:text-5xl font-bold">
-                {about.name}
-              </p>
-            </div>
-
-            <div className="mb-5">
-              <div className="text-rotate h-auto min-h-[52px] sm:min-h-[60px]">
-                <div className="flex flex-col">
-                  <span className="text-3xl sm:text-4xl xl:text-5xl">
-                    Developers Web/Mobile
-                  </span>
-                  <span className="text-3xl sm:text-4xl xl:text-5xl">
-                    Designer
-                  </span>
-                </div>
-              </div>
-            </div>
+           <div className="flex items-center gap-2 mb-5">
+            <h1 className="text-4xl xl:text-5xl font-bold ">Hello, I'm</h1>
+            <p className="text-primary text-4xl xl:text-5xl font-bold ">{about.name}</p>
+          </div>
+             <span>
+            <span className="text-rotate h-10 bg-red-500">
+              <span>
+                <span className="text-2xl">
+                  Developers Web/Mobile
+                </span>
+                <span className="text-2xl">Designer</span>
+              </span>
+            </span>
+          </span>
 
             <p className="py-6 text-base sm:text-lg">{about.description}</p>
 
