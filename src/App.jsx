@@ -14,7 +14,7 @@ function App() {
 
   };
   return (
-    <div className="lg:mx-15 md:mx-5 ">
+    <div className="lg:mx-15 md:mx-5">
       <Hero onClickScroll={handleScroll}/>
       <Skills />
       <Project />
