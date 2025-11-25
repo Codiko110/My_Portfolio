@@ -94,7 +94,7 @@ function Hero({ onClickScroll }) {
                 Hello, I'm
               </h1>
               <p className="text-primary text-4xl sm:text-5xl lg:text-6xl font-bold">
-                {about.name}
+                {about.name}.
               </p>
             </div>
           </motion.div>
