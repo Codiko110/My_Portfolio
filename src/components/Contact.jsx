@@ -1,7 +1,7 @@
 import { socialLinks } from "../data/data"
 import { useState } from "react"
 import { motion } from "framer-motion"
-
+import emailjs from "emailjs-com";   // <-- AJOUT IMPORTANT
 
 function Contact({refProps}) {
   const [formData, setFormData] = useState({
@@ -18,12 +18,34 @@ function Contact({refProps}) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false); // Pour animation bouton
+
+   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Vous pouvez ajouter l'envoi d'email ici
-    alert('Merci pour votre message! Je vous répondrai bientôt.');
-    setFormData({ name: '', email: '', message: '' });
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_f53cr36",      // EX: service_12abcde
+        "template_bwlqnsn",     // EX: template_x9f7abc
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        },
+        "uwx0e2vfqyqY-pILu"        // EX: nP8SLKjhdf8s9zh
+      )
+      .then(
+        () => {
+          alert("Votre message a été envoyé avec succès !");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("EmailJS Error:", error);
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      )
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -117,8 +139,12 @@ function Contact({refProps}) {
 
                 {/* Bouton Envoyer */}
                 <div className="form-control pt-4">
-                  <button type="submit" className="btn btn-primary btn-lg w-full">
-                    Send Message
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-lg w-full"
+                    disabled={loading}
+                  >
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               </form>
