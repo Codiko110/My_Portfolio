@@ -27,6 +27,11 @@ export const Stack = [
     icon: "css3",
     iconUrl: "https://cdn.simpleicons.org/css"
   },
+  { 
+    id: 13,
+    name: "Tailwind CSS",
+    iconUrl: "https://cdn.simpleicons.org/tailwindcss",
+  },
   {
     id: 3,
     name: "JavaScript",
@@ -51,12 +56,21 @@ export const Stack = [
     icon: "react",
     iconUrl: "https://cdn.simpleicons.org/react"
   },
+  { 
+    id: 14,
+    name: "Angular",
+    iconUrl: "https://cdn.simpleicons.org/Angular",
+  },
   {
     id: 7,
     name: "React Native",
     icon: "react",
-    // React Native n'a pas de slug “reactnative” dans simple-icons, mais on peut utiliser le même que React ou une autre source
     iconUrl: "https://cdn.simpleicons.org/react"
+  },
+  { 
+    id: 14,
+    name: "Flutter",
+    iconUrl: "https://cdn.simpleicons.org/Flutter",
   },
   {
     id: 8,
@@ -87,11 +101,6 @@ export const Stack = [
     name: "SQLite",
     icon: "sqlite",
     iconUrl: "https://cdn.simpleicons.org/sqlite"
-  },
-  { 
-    id: 13,
-    name: "Tailwind CSS",
-    iconUrl: "https://cdn.simpleicons.org/tailwindcss",
   },
 ];
 
