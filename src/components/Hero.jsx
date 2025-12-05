@@ -1,5 +1,5 @@
 import { about } from "../data/data";
-import avatar from "../pictures/avatar.png";
+import avatar from "../pictures/avatar.jpg";
 import Cv1 from "../assets/cv1.pdf";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";

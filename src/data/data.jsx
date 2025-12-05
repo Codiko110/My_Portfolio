@@ -7,7 +7,7 @@ import survey from '../pictures/survey.png';
 
 export const about = {
   name: " Sedera",
-  avatar: "avatar.png",
+  avatar: "avatar.jpg",
   role: "Web|Mobile Developer & Designer",
   logo : "logo.png",
   description:
