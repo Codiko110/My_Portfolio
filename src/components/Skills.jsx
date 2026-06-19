@@ -1,7 +1,11 @@
-import { Stack, SkillCapabilities } from "../data/data";
-import {motion} from "framer-motion";
+import { Stack } from "../data/data";
+import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 function Skills() {
+  const { t } = useLanguage();
+  const capabilities = t("capabilities");
+
   const listStack = Stack.map((stack, index) => (
     <motion.div 
       key={stack.id} 
@@ -51,7 +55,7 @@ function Skills() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        Skills
+        {t("skills.title")}
       </motion.h1>
 
       <motion.div 
@@ -71,7 +75,7 @@ function Skills() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        What I Can Do
+        {t("skills.whatICanDo")}
       </motion.h2>
 
       <motion.div 
@@ -81,9 +85,9 @@ function Skills() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {SkillCapabilities.map((item) => (
+        {capabilities.map((item, index) => (
           <motion.div
-            key={item.id}
+            key={index}
             className="bg-base-100 p-6 rounded-xl shadow hover:shadow-lg transition"
             variants={itemVariants}
             whileHover={{ 

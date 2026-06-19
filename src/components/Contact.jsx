@@ -1,9 +1,12 @@
 import { socialLinks } from "../data/data"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import emailjs from "emailjs-com";   // <-- AJOUT IMPORTANT
+import emailjs from "emailjs-com";
+import { useLanguage } from "../context/LanguageContext";
 
 function Contact({refProps}) {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,7 +21,7 @@ function Contact({refProps}) {
     }));
   };
 
-  const [loading, setLoading] = useState(false); // Pour animation bouton
+  const [loading, setLoading] = useState(false);
 
    const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,23 +29,23 @@ function Contact({refProps}) {
 
     emailjs
       .send(
-        "service_f53cr36",      // EX: service_12abcde
-        "template_bwlqnsn",     // EX: template_x9f7abc
+        "service_f53cr36",
+        "template_bwlqnsn",
         {
           name: formData.name,
           email: formData.email,
           message: formData.message
         },
-        "uwx0e2vfqyqY-pILu"        // EX: nP8SLKjhdf8s9zh
+        "uwx0e2vfqyqY-pILu"
       )
       .then(
         () => {
-          alert("Votre message a été envoyé avec succès !");
+          alert(t("contact.success"));
           setFormData({ name: "", email: "", message: "" });
         },
         (error) => {
           console.error("EmailJS Error:", error);
-          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+          alert(t("contact.error"));
         }
       )
       .finally(() => setLoading(false));
@@ -58,7 +61,6 @@ function Contact({refProps}) {
       viewport={{ once: true }}
     >
       <div className="max-w-7xl mx-auto">
-        {/* Titre */}
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: -30 }}
@@ -66,8 +68,8 @@ function Contact({refProps}) {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-5xl font-bold text-primary mb-4">Contact Me</h1>
-          <p className="text-xl text-base-content/60">Feel free to send me a message</p>
+          <h1 className="text-5xl font-bold text-primary mb-4">{t("contact.title")}</h1>
+          <p className="text-xl text-base-content/60">{t("contact.subtitle")}</p>
         </motion.div>
 
         <motion.div 
@@ -78,7 +80,6 @@ function Contact({refProps}) {
           viewport={{ once: true }}
         >
 
-                   {/* Formulaire de Contact */}
           <motion.div 
             className="card bg-base-100 shadow-xl"
             initial={{ opacity: 0, x: -50 }}
@@ -87,64 +88,60 @@ function Contact({refProps}) {
             viewport={{ once: true }}
           >
             <div className="card-body">
-              <h2 className="card-title text-2xl text-primary mb-6">Send Me a Message</h2>
+              <h2 className="card-title text-2xl text-primary mb-6">{t("contact.formTitle")}</h2>
               
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Nom */}
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text font-semibold">Your name</span>
+                    <span className="label-text font-semibold">{t("contact.nameLabel")}</span>
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Vatosoa Sedera"
+                    placeholder={t("contact.namePlaceholder")}
                     className="input input-bordered input-primary w-full"
                     required
                   />
                 </div>
 
-                {/* Email */}
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text font-semibold">Your Email</span>
+                    <span className="label-text font-semibold">{t("contact.emailLabel")}</span>
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="vatosoa7028@gmail.com"
+                    placeholder={t("contact.emailPlaceholder")}
                     className="input input-bordered input-primary w-full"
                     required
                   />
                 </div>
 
-                {/* Message */}
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text font-semibold">Your Message</span>
+                    <span className="label-text font-semibold">{t("contact.messageLabel")}</span>
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Write your message here..."
+                    placeholder={t("contact.messagePlaceholder")}
                     className="textarea textarea-bordered textarea-primary w-full h-32"
                     required
                   />
                 </div>
 
-                {/* Bouton Envoyer */}
                 <div className="form-control pt-4">
                   <button
                     type="submit"
                     className="btn btn-primary btn-lg w-full"
                     disabled={loading}
                   >
-                    {loading ? "Sending..." : "Send Message"}
+                    {loading ? t("contact.sending") : t("contact.send")}
                   </button>
                 </div>
               </form>
@@ -152,7 +149,6 @@ function Contact({refProps}) {
           </motion.div>
  
 
-          {/* Liens de Contact */}
           <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, x: 50 }}
@@ -160,27 +156,24 @@ function Contact({refProps}) {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* Carte d'informations */}
             <div className="card bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title text-2xl text-primary mb-4">My Contacts</h2>
+                <h2 className="card-title text-2xl text-primary mb-4">{t("contact.contactsTitle")}</h2>
                 
-                {/* Email */}
                 <div className="flex items-center gap-4 p-3 bg-base-200 rounded-lg">
                   <div className="text-primary text-2xl">📧</div>
                   <div>
-                    <p className="text-sm text-base-content/60">Email</p>
+                    <p className="text-sm text-base-content/60">{t("contact.email")}</p>
                     <a href="mailto:vatosoa7028@gmail.com" className="text-primary font-semibold hover:underline">
                       vatosoa7028@gmail.com
                     </a>
                   </div>
                 </div>
 
-                {/* WhatsApp */}
                 <div className="flex items-center gap-4 p-3 bg-base-200 rounded-lg">
                   <div className="text-primary text-2xl">💬</div>
                   <div>
-                    <p className="text-sm text-base-content/60">WhatsApp</p>
+                    <p className="text-sm text-base-content/60">{t("contact.whatsapp")}</p>
                     <a href="https://wa.me/26133824949" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
                       +261 33 82 849 49
                     </a>
@@ -189,7 +182,7 @@ function Contact({refProps}) {
                 <div className="flex items-center gap-4 p-3 bg-base-200 rounded-lg">
                   <div className="text-primary text-2xl">🔗</div>
                   <div>
-                    <p className="text-sm text-base-content/60">Comeup</p>
+                    <p className="text-sm text-base-content/60">{t("contact.comeup")}</p>
                     <a href="https://comeup.com/en/@sedera-devweb" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
                       @Sedera_DevWeb
                     </a>
@@ -198,10 +191,9 @@ function Contact({refProps}) {
               </div>
             </div>
 
-            {/* Liens Réseaux Sociaux */}
             <div className="card bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title text-2xl text-primary mb-4">Follow Me</h2>
+                <h2 className="card-title text-2xl text-primary mb-4">{t("contact.followMe")}</h2>
                 
                 <div className="flex flex-wrap gap-3">
                   {socialLinks

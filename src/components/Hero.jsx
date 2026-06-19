@@ -3,8 +3,11 @@ import avatar from "../pictures/avatar.jpg";
 import Cv1 from "../assets/cv1.pdf";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 function Hero({ onClickScroll }) {
+  const { t } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -25,21 +28,18 @@ function Hero({ onClickScroll }) {
     },
   };
 
-  // Dans votre composant
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
-  const roles = ["Web & Mobile Developer", "Designer"];
+  const roles = t("hero.roles");
 
-  // Animation toutes les 0.5s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2000); // 0.5 secondes
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
-  // Variants d'animation
   const roleVariants = {
     enter: {
       y: 20,
@@ -66,7 +66,6 @@ function Hero({ onClickScroll }) {
       transition={{ duration: 0.8 }}
     >
       <div className="hero-content flex-col lg:flex-row-reverse w-full px-4 md:px-8">
-        {/* Image Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, x: 100 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -80,18 +79,16 @@ function Hero({ onClickScroll }) {
           />
         </motion.div>
 
-        {/* Contenu texte */}
         <motion.div
           className="w-full lg:pr-12"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Salutation */}
           <motion.div className="" variants={itemVariants}>
             <div className="flex flex-row sm:flex-row items-start sm:items-center gap-2 mb-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
-                Hello, I'm
+                {t("hero.greeting")}
               </h1>
               <p className="text-primary text-4xl sm:text-5xl lg:text-6xl font-bold">
                 {about.name}.
@@ -99,7 +96,6 @@ function Hero({ onClickScroll }) {
             </div>
           </motion.div>
 
-          {/* Rôles animés */}
           <motion.div className="" variants={itemVariants}>
             <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-start">
               <AnimatePresence mode="wait">
@@ -121,15 +117,13 @@ function Hero({ onClickScroll }) {
             </div>
           </motion.div>
 
-          {/* Description */}
           <motion.p
             className="py-4 sm:py-6 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl"
             variants={itemVariants}
           >
-            {about.description}
+            {t("hero.description")}
           </motion.p>
 
-          {/* Boutons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 pt-4"
             variants={itemVariants}
@@ -140,7 +134,7 @@ function Hero({ onClickScroll }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Hire me
+              {t("hero.hireMe")}
             </motion.button>
             <motion.button
               className="btn btn-outline btn-primary w-full sm:w-auto"
@@ -148,7 +142,7 @@ function Hero({ onClickScroll }) {
               whileTap={{ scale: 0.95 }}
             >
               <a href={Cv1} className="no-underline">
-                Download CV
+                {t("hero.downloadCv")}
               </a>
             </motion.button>
           </motion.div>

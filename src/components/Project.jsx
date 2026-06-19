@@ -1,7 +1,11 @@
 import { projects } from "../data/data.jsx";
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 function Project() {
+  const { t } = useLanguage();
+  const projectsList = t("projectsList");
+
   const listProjects = projects.map((project, index) => (
     <motion.div 
       key={project.id} 
@@ -12,12 +16,12 @@ function Project() {
       viewport={{ once: true }}
     >
       <figure>
-        <img className="h-70" src={project.image} alt={project.title} />
+        <img className="h-70" src={project.image} alt={projectsList[index]?.title} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{project.title} 
+        <h2 className="card-title">{projectsList[index]?.title}
         </h2>
-        <p>{project.description}</p>
+        <p>{projectsList[index]?.description}</p>
         <div className="flex gap-2 flex-wrap">
           {project.technologies.map((tech, index) => (
             <span key={index} className="badge badge-primary">
@@ -44,7 +48,7 @@ function Project() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Projects
+          {t("projects.title")}
         </motion.h1>
         <div 
             className="flex flex-wrap place-content-center bg-base-100 rounded-2xl gap-5 mb-10"
