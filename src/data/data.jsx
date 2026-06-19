@@ -1,9 +1,9 @@
-import ecommerce from '../pictures/ecommerce.jpg';
+import FastFood from '../pictures/FastFood.png';
 import cyber from '../pictures/cyber.png';
-import pharmacie from '../pictures/pharmacie.png';
+import dominos from '../pictures/dominos.png';
 import createCV from '../pictures/createCV.png';
 import zanaka from '../pictures/Zanaka_connect.png';
-import survey from '../pictures/survey.png';
+import medecin from '../pictures/medecin.png';
 
 export const about = {
   name: " Sedera",
@@ -135,50 +135,50 @@ export const tools = [
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce",
+    title: "Fastfood - E-commerce platform",
     description:
-      "It's a mini e-commerce platform with product listing, user authentication, and a shopping cart.",
-    technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
-    image: ecommerce,
+      "It's a platform that allows users to order food online from various restaurants, providing a convenient and efficient way to enjoy their favorite meals.",
+    technologies: ["Laravel", "React", "PostgreSQL"],
+    image: FastFood,
   },
   {
     id: 5,
     title: "Local Cybercafé management system",
     description: "It's time management, prices of connected people.",
-    technologies: ["PHP", "Mysql", "JavaScript", "CSS", "HTML"],
+    technologies: ["PHP", "JavaScript", "MySQL"],
     image: cyber,
   },
-  {
-    id: 3,
-    title: "Pharmacy Management Platform",
-    description:
-      "It's a management of drug stocks added and sold with a visualization graph over time.",
-    technologies: ["PHP", "Myql", "HTML", "CSS", "JavaScript"],
-    image: pharmacie,
-  },
-  {
+    {
     id: 4,
     title: "CV creation platform",
     description:
       "It's a site allowing people to easily and quickly create CVs with various themes",
-    technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
+    technologies: ["Django", "JavaScript", "MySQL"],
     image: createCV,
+  },
+  {
+    id: 3,
+    title: "Dominos Counter with AI",
+    description:
+      "An application that uses deep learning to count the number of dominos in an image, providing accurate and efficient counting for various purposes.",
+    technologies: ["React Native", "Python", "TensorFlow"],
+    image: dominos,
   },
   {
     id: 2,
     title: "ZanakaConnect – School Monitoring platform",
     description:
       "A web app that connects parents and schools by providing real-time access to students’ grades, attendance, and assignments.",
-    technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
+    technologies: ["React Native","Django","MySQL"],
     image: zanaka,
   },
   {
     id: 6,
-    title: "Syrvey System platform",
+    title: "Medecin Connect – Medical Survey Platform",
     description:
-      "A web app that allows users to create and participate in surveys, collecting valuable data and insights.",
-    technologies: ["Django", "Sqlite", "HTML", "CSS", "JavaScript"],
-    image: survey,
+      "Smart healthcare mobile app for Madagascar. Features include AI-based symptom triage, hospital mapping, and ambulance tracking for patients, plus a dedicated dashboard for doctors to manage cases, bed availability, and teleconsultations.",
+    technologies: ["React Native", "Django", "PostgreSQL"],
+    image: medecin,
   },
 ];
 
@@ -205,7 +205,7 @@ export const socialLinks = [
   },
   {
     name: "whatsapp",
-    url: "https://wa.me/261380755474",
+    url: "https://wa.me/26133824949",
     icon: "https://cdn.simpleicons.org/whatsapp",
   },
   {
