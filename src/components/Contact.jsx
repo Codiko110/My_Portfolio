@@ -181,8 +181,8 @@ function Contact({refProps}) {
                   <div className="text-primary text-2xl">💬</div>
                   <div>
                     <p className="text-sm text-base-content/60">WhatsApp</p>
-                    <a href="https://wa.me/261380755474" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
-                      +261 38 07 55 474
+                    <a href="https://wa.me/26133824949" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
+                      +261 33 82 849 49
                     </a>
                   </div>
                 </div>
